@@ -4,9 +4,10 @@ module.exports = {
   development: {
     client: "pg",
     connection: {
-      database: "knex_test",
-      user: "postgres",
-      password: "3081",
+      database: "d55qs1ublcfftc",
+      user: "eslumfvmshtwgk",
+      password:
+        "f6680374703bc586ffd4a312452c80ed5a59b60fd28c7521766bb4883544d513",
     },
     migrations: {
       tableName: "knex_migrations",
@@ -22,4 +23,15 @@ module.exports = {
   FOR EACH ROW
   EXECUTE PROCEDURE on_update_timestamp();
   `,
+
+  production: {
+    client: "pg",
+    connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: __dirname + "/src/database/migrations",
+    },
+    seeds: {
+      directory: __dirname + "/src/database/seeds",
+    },
+  },
 };
